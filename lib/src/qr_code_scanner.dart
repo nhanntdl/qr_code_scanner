@@ -25,7 +25,7 @@ class QRView extends StatefulWidget {
   const QRView({
     required Key key,
     required this.onQRViewCreated,
-    required this.onClose,
+    this.onClose,
     this.overlay,
     this.overlayMargin = EdgeInsets.zero,
     this.cameraFacing = CameraFacing.back,
@@ -38,7 +38,7 @@ class QRView extends StatefulWidget {
   final QRViewCreatedCallback onQRViewCreated;
 
   /// [onClose] gets called when the view is created
-  final CloseCallBack onClose;
+  final CloseCallBack? onClose;
 
   /// Use [overlay] to provide an overlay for the view.
   /// This can be used to create a certain scan area.
@@ -160,7 +160,7 @@ class _QRViewState extends State<QRView> with SingleTickerProviderStateMixin {
             top: widget.overlay!.borderLength / 2,
             child: GestureDetector(
               onTap: () {
-                widget.onClose();
+                widget.onClose!();
               },
               child: Container(
                 decoration: BoxDecoration(
