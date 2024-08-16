@@ -112,7 +112,7 @@ class QrScannerOverlayShape extends ShapeBorder {
       _cutOutHeight - borderOffset * 2,
     );
 
-    var capPaint = Paint()..color = Colors.white;
+    var capPaint = Paint()..color = borderColor;
 
     canvas
       ..saveLayer(
